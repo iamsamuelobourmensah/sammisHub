@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       darkTheme: Apptheme.darkTheme,
-      theme: Apptheme.darkTheme,
+      theme: Apptheme.lightTheme,
 
       home:  CustomNavbar(),
     );

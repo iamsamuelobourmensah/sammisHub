@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sammis_hub/core/Constants/color_theme.dart';
-import 'package:sammis_hub/core/features/HomeScreen/Presentation/widgets/circle_avatar_widget.dart';
+import 'package:sammis_hub/features/HomeScreen/Presentation/widgets/circle_avatar_widget.dart';
 
 class HomeScreenAppBarWidget extends StatelessWidget {
    HomeScreenAppBarWidget({super.key,this.userLocation,this.userName});

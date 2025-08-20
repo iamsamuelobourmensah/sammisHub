@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sammis_hub/core/Constants/color_theme.dart';
-import 'package:sammis_hub/core/features/HomeScreen/Presentation/widgets/circle_avatar_widget.dart';
+import 'package:sammis_hub/features/HomeScreen/Presentation/widgets/circle_avatar_widget.dart';
 
 class CustomSearchBar extends StatelessWidget {
   CustomSearchBar({super.key, this.controller, this.onChanged});
