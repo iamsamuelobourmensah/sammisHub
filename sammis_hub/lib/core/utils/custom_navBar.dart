@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:sammis_hub/core/Constants/color_theme.dart';
 import 'package:sammis_hub/core/features/CartScreen/presentation/cart_screen.dart';
-import 'package:sammis_hub/core/features/HomeScreen/Presentation/home_screen.dart';
+import 'package:sammis_hub/core/features/HomeScreen/Presentation/screens/home_screen.dart';
 import 'package:sammis_hub/core/features/Profile/presentation/profile_screen.dart';
 import 'package:sammis_hub/core/features/wishListScreen/presentation/wishListscreen.dart';
 

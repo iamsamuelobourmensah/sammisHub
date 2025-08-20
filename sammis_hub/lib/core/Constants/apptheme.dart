@@ -7,7 +7,7 @@ class Apptheme {
   // lightAppTheme
 static  final ThemeData lightTheme =
       ThemeData(useMaterial3: true, 
-      fontFamily:GoogleFonts.montserrat().fontFamily,
+      fontFamily:GoogleFonts.plusJakartaSans().fontFamily,
       textTheme: TextTheming.lightTextTheme,
       brightness: Brightness.light,
 scaffoldBackgroundColor: Colortheme.labelTertiary
@@ -16,7 +16,7 @@ scaffoldBackgroundColor: Colortheme.labelTertiary
        //darkAppTheme
        static  final ThemeData darkTheme =
       ThemeData(useMaterial3: true, 
-      fontFamily:GoogleFonts.montserrat().fontFamily,
+      fontFamily:GoogleFonts.plusJakartaSans().fontFamily,
       textTheme: TextTheming.lightTextTheme,
       brightness: Brightness.dark,
 scaffoldBackgroundColor: Colors.black
