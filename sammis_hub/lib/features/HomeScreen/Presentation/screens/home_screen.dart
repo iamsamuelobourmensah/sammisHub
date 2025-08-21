@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sammis_hub/features/HomeScreen/Presentation/widgets/carousel_widget.dart';
 import 'package:sammis_hub/features/HomeScreen/Presentation/widgets/category_widget.dart';
 import 'package:sammis_hub/features/HomeScreen/Presentation/widgets/home_screen_app_bar_widget.dart';
 import 'package:sammis_hub/features/HomeScreen/Presentation/widgets/search_bar.dart';
@@ -32,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                   CustomSearchBar(),
                   SizedBox(height: screenSize.height * 0.02),
                   SizedBox(
-                    height: screenSize.height * 0.4,
+                    height: screenSize.height * 0.1,
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
@@ -47,6 +48,8 @@ class HomeScreen extends StatelessWidget {
                       itemCount: categories.length,
                     ),
                   ),
+                  SizedBox(height: screenSize.height * 0.01),
+                  CarouselWidget(),
                 ],
               ),
             ],
