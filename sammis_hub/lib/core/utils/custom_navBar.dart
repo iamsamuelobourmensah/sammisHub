@@ -24,12 +24,14 @@ class _CustomNavbarState extends State<CustomNavbar> {
       bottomNavigationBar: BottomNavigationBar(
            landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colortheme.labelTertiary,
-         unselectedItemColor: Colortheme.systemBackgroundDark,
-         selectedItemColor: Colortheme.primaryNormal,
-        currentIndex: navBarcontroller.currentScreen.value,
-        onTap: (index) {
-          navBarcontroller.currentScreen.value = index;
+          backgroundColor: Theme.of(context).brightness == Brightness.light
+              ? Colortheme.labelTertiary
+              : Colors.black,
+          unselectedItemColor: Colortheme.systemBackgroundDark,
+          selectedItemColor: Colortheme.primaryNormal,
+          currentIndex: navBarcontroller.currentScreen.value,
+          onTap: (index) {
+            navBarcontroller.currentScreen.value = index;
          // Get.to(navBarcontroller.navScreens[index]);
         },
         items: const [
