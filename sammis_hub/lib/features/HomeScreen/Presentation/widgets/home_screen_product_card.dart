@@ -44,7 +44,9 @@ class HomeScreenProductCard extends StatelessWidget {
                 height: 35,
                 width: 35,
                 decoration: BoxDecoration(
-                  color: Colortheme.labelPrimary,
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? Colortheme.labelTertiary
+                      : Colortheme.labelPrimary,
                   borderRadius: BorderRadius.circular(20),
                 ),
               child: Icon(Icons.favorite_border_outlined, ),

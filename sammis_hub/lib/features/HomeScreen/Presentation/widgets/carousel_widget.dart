@@ -7,76 +7,122 @@ class CarouselWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-     // clipBehavior: Clip.antiAlias,
-      height: MediaQuery.of(context).size.height*0.23,
-      width: MediaQuery.of(context).size.width/1,
+      // clipBehavior: Clip.antiAlias,
+      height: MediaQuery.of(context).size.height * 0.23,
+      width: MediaQuery.of(context).size.width / 1,
       decoration: BoxDecoration(
         color: Colortheme.primaryNormal,
         borderRadius: BorderRadius.circular(20),
       ),
-child: Padding(
-  padding: const EdgeInsets.all(15.0),
-  child: Stack(
-    clipBehavior: Clip.none,
-    children: [
-      Positioned(
-        left:-1,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Stack(
+          clipBehavior: Clip.none,
           children: [
-          Text("Step Into Elegance,",style: Theme.of(context).textTheme.displayLarge?.copyWith(
-            fontSize: 20,
-            color: Colortheme.labelTertiary,
-            fontWeight: FontWeight.w900,
-          )),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-              
-          Text("Walk With Pride",style: Theme.of(context).textTheme.displayLarge?.copyWith(
-            fontSize: 20,
-            color: Colortheme.labelTertiary,
-            fontWeight: FontWeight.w900,
-          )),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.015),
-          Text("Enjoy discount of up to",style: Theme.of(context).textTheme.displayLarge?.copyWith(
-            color: Colortheme.labelTertiary,
-           // fontWeight: FontWeight.bold,
-          )),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-              
-          Text("10% on your order today",style: Theme.of(context).textTheme.displayLarge?.copyWith(
-            color: Colortheme.labelTertiary,
-           // fontWeight: FontWeight.bold,
-          )),
-          //SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-              
-              ElevatedButton(
-                style: ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll(Colortheme.labelTertiary),
-        shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(23.0),
-          ),
+            Positioned(
+              left: -1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Step Into Elegance,",
+                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                      fontSize: 20,
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Colortheme.labelTertiary
+                              : Colortheme.labelPrimary,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+
+                  Text(
+                    "Walk With Pride",
+                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                      fontSize: 20,
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Colortheme.labelTertiary
+                              : Colortheme.labelPrimary,
+
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.015),
+                  Text(
+                    "Enjoy discount of up to",
+                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Colortheme.labelTertiary
+                              : Colortheme.labelPrimary,
+
+                      // fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+
+                  Text(
+                    "10% on your order today",
+                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Colortheme.labelTertiary
+                              : Colortheme.labelPrimary,
+
+                      // fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  //SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(
+                        Colortheme.labelTertiary,
+                      ),
+                      shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(23.0),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 0.0,
+                        vertical: 12.0,
+                      ),
+                      child: Text(
+                        "View Details",
+                        style: Theme.of(
+                          context,
+                        ).textTheme.displayLarge?.copyWith(
+                          color: Colortheme.labelPrimary,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            Positioned(
+              bottom: -100,
+              // top: -10,
+              // right: -5,
+              left: 70,
+              child: Image.asset(
+                "assets/images/caroShoe.png",
+                fit: BoxFit.contain,
+                width: 400,
+                height: 380,
+              ),
+            ),
+          ],
         ),
-                ),
-                onPressed: () {}, child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 12.0),
-        child: Text("View Details",style: Theme.of(context).textTheme.displayLarge?.copyWith(
-          color: Colortheme.labelPrimary,
-          fontWeight: FontWeight.w800,
-        ),),
-                ))
-        ],),
       ),
-            
-      Positioned(
-        bottom: -100,
-       // top: -10,
-       // right: -5,
-        left: 70,
-        child: Image.asset("assets/images/caroShoe.png",fit: BoxFit.contain,width: 400,height: 380,)),
-    ],
-  ),
-),
     );
   }
 }
