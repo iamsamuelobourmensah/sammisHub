@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:sammis_hub/core/Constants/apptheme.dart';
 import 'package:sammis_hub/core/utils/custom_navBar.dart';
-import 'package:sammis_hub/features/Product/presentation/screens/product_details_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       darkTheme: Apptheme.darkTheme,
       theme: Apptheme.darkTheme,
 
-      home:  ProductDetailsScreen(),
+      home:  CustomNavbar(),
     );
   }
 }

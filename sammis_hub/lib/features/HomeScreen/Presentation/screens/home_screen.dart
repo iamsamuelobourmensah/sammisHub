@@ -8,6 +8,7 @@ import 'package:sammis_hub/features/HomeScreen/Presentation/widgets/search_bar.d
 import 'package:sammis_hub/features/HomeScreen/data/repository/category_local_data_impl.dart';
 import 'package:sammis_hub/features/HomeScreen/domain/entities/category_entity.dart';
 import 'package:sammis_hub/features/HomeScreen/domain/repository/category_repository.dart';
+import 'package:sammis_hub/features/Product/presentation/screens/product_details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -74,12 +75,22 @@ class HomeScreen extends StatelessWidget {
                     GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                        childAspectRatio: 0.8,
+                        //childAspectRatio: 0.95,
+                        mainAxisExtent: 210,
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 10,
                       ),
                       itemBuilder: (context, index) {
-                        return HomeScreenProductCard();
+                        return InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => ProductDetailsScreen(),
+                              ),
+                            );
+                          },
+                          child: HomeScreenProductCard(),
+                        );
                       },
                       itemCount: 10,
                      shrinkWrap: true,

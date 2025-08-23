@@ -52,7 +52,7 @@ class CarouselWidget extends StatelessWidget {
                   SizedBox(height: MediaQuery.of(context).size.height * 0.015),
                   Text(
                     "Enjoy discount of up to",
-                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                    style: Theme.of(context).textTheme.displayMedium?.copyWith(
                       color:
                           Theme.of(context).brightness == Brightness.light
                               ? Colortheme.labelTertiary
@@ -65,7 +65,7 @@ class CarouselWidget extends StatelessWidget {
 
                   Text(
                     "10% on your order today",
-                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                    style: Theme.of(context).textTheme.displayMedium?.copyWith(
                       color:
                           Theme.of(context).brightness == Brightness.light
                               ? Colortheme.labelTertiary
@@ -75,7 +75,7 @@ class CarouselWidget extends StatelessWidget {
                     ),
                   ),
 
-                  //SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(

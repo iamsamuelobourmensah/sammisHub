@@ -7,7 +7,7 @@ class HomeScreenProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.25,
+      height: MediaQuery.of(context).size.height * 0.2,
       width: MediaQuery.of(context).size.width / 2,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -63,7 +63,7 @@ class HomeScreenProductCard extends StatelessWidget {
                   children: [
                     Text(
                       "Luka.77 PF",
-                      style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                      style: Theme.of(context).textTheme.displayMedium?.copyWith(
                         //fontSize: 16,
                         color: Theme.of(context).brightness == Brightness.light
                             ? Colortheme.labelPrimary
@@ -74,7 +74,7 @@ class HomeScreenProductCard extends StatelessWidget {
                     SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                                   Text(
                       "GHC 400",
-                      style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                      style: Theme.of(context).textTheme.displayMedium?.copyWith(
                         //fontSize: 16,
                         color: Theme.of(context).brightness == Brightness.light
                             ? Colortheme.labelPrimary
