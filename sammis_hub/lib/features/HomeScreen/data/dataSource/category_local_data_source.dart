@@ -3,32 +3,32 @@ import 'package:sammis_hub/features/HomeScreen/domain/entities/category_entity.d
 
 
 
-const List<Category> categories = [
-  Category(
+const List<CategoryEntity> categories = [
+  CategoryEntity(
     id: 1,
     name: "Clothes",
     slug: "clothes",
     image: "assets/images/cloth.jpeg",
   ),
-  Category(
+  CategoryEntity(
     id: 2,
     name: "Shoes",
     slug: "shoes",
     image: "assets/images/shoes.jpeg",
   ),
-  Category(
+  CategoryEntity(
     id: 3,
     name: "Electronics",
     slug: "electronics",
     image: "assets/images/electronics.jpeg",
   ),
-  Category(
+  CategoryEntity(
     id: 4,
     name: "Furnitures",
     slug: "furnitures",
     image: "assets/images/furnitures.jpeg",
   ),
-Category(
+  CategoryEntity(
     id: 5,
     name: "Miscellaneous",
     slug: "miscellaneous",

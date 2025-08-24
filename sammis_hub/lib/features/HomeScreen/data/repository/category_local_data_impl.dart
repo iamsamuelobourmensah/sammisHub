@@ -4,7 +4,7 @@ import 'package:sammis_hub/features/HomeScreen/domain/repository/category_reposi
 
 class CategoryLocalDataImpl implements CategoryRepository {
   @override
-  List<Category> getCategories() {
+  List<CategoryEntity> getCategories() {
     return categories;
   }
 }

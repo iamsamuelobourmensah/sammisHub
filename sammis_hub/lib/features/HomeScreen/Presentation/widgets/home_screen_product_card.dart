@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:sammis_hub/core/Constants/color_theme.dart';
 
 class HomeScreenProductCard extends StatelessWidget {
-  const HomeScreenProductCard({super.key});
+  const HomeScreenProductCard({super.key, required this.imageUrl, required this.productName, required this.productPrice});
+
+final String imageUrl;
+final String productName;
+final String productPrice;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.2,
+    //  height: MediaQuery.of(context).size.height * 0.2,
       width: MediaQuery.of(context).size.width / 2,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -32,7 +36,7 @@ class HomeScreenProductCard extends StatelessWidget {
                 //         ? Colortheme.labelTertiary
                 //         : Colortheme.labelPrimary,
                 image: DecorationImage(
-                  image: AssetImage("assets/images/electronics.jpeg"),
+                  image: NetworkImage(imageUrl),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -53,42 +57,50 @@ class HomeScreenProductCard extends StatelessWidget {
               ),
             ),
           ]),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Luka.77 PF",
-                      style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                        //fontSize: 16,
-                        color: Theme.of(context).brightness == Brightness.light
-                            ? Colortheme.labelPrimary
-                            : Colortheme.labelTertiary,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-                                  Text(
-                      "GHC 400",
-                      style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                        //fontSize: 16,
-                        color: Theme.of(context).brightness == Brightness.light
-                            ? Colortheme.labelPrimary
-                            : Colortheme.labelTertiary,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                Icon(Icons.open_in_new,color: Colortheme.primaryNormal,)
-              ],
+  Padding(
+  padding: const EdgeInsets.all(8.0),
+  child: Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      // Product name + price
+      Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              productName,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? Colortheme.labelPrimary
+                    : Colortheme.labelTertiary,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          )
-        ],
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            Text(
+              "GHC $productPrice",
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? Colortheme.labelPrimary
+                    : Colortheme.labelTertiary,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+
+      // Action icon
+      Icon(
+        Icons.open_in_new,
+        color: Colortheme.primaryNormal,
+      ),
+    ],
+  ),
+)
+ ],
       ),
     );
   }
