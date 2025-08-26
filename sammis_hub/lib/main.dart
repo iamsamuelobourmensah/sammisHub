@@ -3,6 +3,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:sammis_hub/core/Constants/apptheme.dart';
 import 'package:sammis_hub/core/binding/bindings.dart';
 import 'package:sammis_hub/core/utils/custom_navBar.dart';
+import 'package:sammis_hub/features/Cart/presentation/screens/cart_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,9 +30,10 @@ class _MyAppState extends State<MyApp> {
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       darkTheme: Apptheme.darkTheme,
-      theme: Apptheme.lightTheme,
+      theme: Apptheme.darkTheme,
 
-      home: CustomNavbar(),
+     // home: CustomNavbar(),
+     home: CartScreen(),
     );
   }
 }
