@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:sammis_hub/core/Constants/color_theme.dart';
-import 'package:sammis_hub/features/Cart/presentation/cart_screen.dart';
+import 'package:sammis_hub/features/Cart/presentation/screens/cart_screen.dart';
 import 'package:sammis_hub/features/HomeScreen/Presentation/screens/home_screen.dart';
 import 'package:sammis_hub/features/Profile/presentation/profile_screen.dart';
 import 'package:sammis_hub/features/wishList/presentation/wishListscreen.dart';

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ProductDetailscreenImageContainer extends StatelessWidget {
-  const ProductDetailscreenImageContainer({super.key});
+  const ProductDetailscreenImageContainer({super.key, this.imageUrl});
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -9,9 +10,9 @@ class ProductDetailscreenImageContainer extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.3,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(  20),
+        borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
-          image: AssetImage("assets/images/electronics.jpeg"),
+          image: NetworkImage(imageUrl ?? "assets/images/electronics.jpeg"),
           fit: BoxFit.cover,
         ),
       ),

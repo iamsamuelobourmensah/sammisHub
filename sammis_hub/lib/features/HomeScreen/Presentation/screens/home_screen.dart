@@ -15,11 +15,13 @@ import 'package:sammis_hub/features/HomeScreen/domain/repository/category_reposi
 import 'package:sammis_hub/features/Product/presentation/screens/product_details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  HomeScreen({super.key, this.product});
 
   final CategoryRepository categoryRepository = CategoryLocalDataImpl();
 
-final productController = Get.find<ProductController>();
+  final productController = Get.find<ProductController>();
+  final ProductModel? product;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ final productController = Get.find<ProductController>();
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(screenSize.height * 0.1), 
+        preferredSize: Size.fromHeight(screenSize.height * 0.1),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(15.0),
@@ -43,7 +45,7 @@ final productController = Get.find<ProductController>();
           padding: const EdgeInsets.all(15.0),
           child: Column(
             children: [
-              SizedBox(height: screenSize.height * 0.02),
+              // SizedBox(height: screenSize.height * 0.02),
               CustomSearchBar(),
               SizedBox(height: screenSize.height * 0.02),
               SizedBox(
@@ -71,9 +73,10 @@ final productController = Get.find<ProductController>();
                   Text(
                     "Featured Products",
                     style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                      color: Theme.of(context).brightness == Brightness.light
-                          ? Colortheme.labelPrimary
-                          : Colortheme.labelTertiary,
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Colortheme.labelPrimary
+                              : Colortheme.labelTertiary,
                       fontWeight: FontWeight.w900,
                     ),
                   ),
@@ -89,44 +92,50 @@ final productController = Get.find<ProductController>();
               SizedBox(height: screenSize.height * 0.02),
 
               // retriving the product and diplay it in a future builder
-              FutureBuilder(future: productController.fetchProducts(), builder: (context,snapshot){
-                if(snapshot.connectionState == ConnectionState.waiting){
-                  return Center(child: CircularProgressIndicator());
-                }else if(snapshot.hasError){
-                  return Center(child: Text('Error: ${snapshot.error}'));
-                }else{
-                  return GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisExtent: 250,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                    ),
-                    itemBuilder: (context, index) {
-                  final ProductModel? product = snapshot.data?[index];
+              FutureBuilder(
+                future: productController.fetchProducts(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Center(child: Text('Error: ${snapshot.error}'));
+                  } else {
+                    return GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisExtent: 230,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                      ),
+                      itemBuilder: (context, index) {
+                        final ProductModel? product = snapshot.data?[index];
 
-                      return InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => ProductDetailsScreen(),
-                            ),
-                          );
-                        },
-                        child: HomeScreenProductCard(
-                          imageUrl: product?.images?[0] ?? '',
-                          productName: product?.title ?? '',
-                          productPrice: product?.price.toString() ?? '',
-                        ),
-                      );
-                    },
-                    itemCount: snapshot.data?.length ?? 0,
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                  );
-                }
-              })
-
+                        return InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => ProductDetailsScreen(
+                                      productModel: product,
+                                    ),
+                              ),
+                            );
+                          },
+                          child: HomeScreenProductCard(
+                            imageUrl: product?.images?[0] ?? '',
+                            productName: product?.title ?? '',
+                            productPrice:
+                                product?.price?.toStringAsFixed(2) ?? '',
+                          ),
+                        );
+                      },
+                      itemCount: snapshot.data?.length ?? 0,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                    );
+                  }
+                },
+              ),
             ],
           ),
         ),

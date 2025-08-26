@@ -62,7 +62,7 @@ final String productPrice;
   child: Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      // Product name + price
+    
       Expanded(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,7 +92,7 @@ final String productPrice;
         ),
       ),
 
-      // Action icon
+
       Icon(
         Icons.open_in_new,
         color: Colortheme.primaryNormal,

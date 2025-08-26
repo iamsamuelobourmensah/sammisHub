@@ -8,6 +8,12 @@ class ProductController extends GetxController {
 
   ProductController(this._productRepository);
 
+  @override
+  void onInit() {
+    super.onInit();
+    fetchProducts();
+  }
+
   // Fetch products from the repository
   Future<List<ProductModel>> fetchProducts() async {
     try {
