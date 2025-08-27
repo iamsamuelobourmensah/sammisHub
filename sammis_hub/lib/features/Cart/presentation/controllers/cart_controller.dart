@@ -1,30 +1,31 @@
 import 'package:get/get.dart';
 import 'package:sammis_hub/features/Cart/Domain/entities/cart_entity.dart';
+import 'package:sammis_hub/features/HomeScreen/data/model/product_model.dart';
+
+// contoller to handel cartscreen
+
 
 class CartController extends GetxController {
-// contoller to handel cartscreen
-  List<CartEntity> cartItems = <CartEntity>[].obs;
+  List<ProductModel> cartItems = <ProductModel>[].obs;
 
-  void addToCart(CartEntity item) {
+  void addToCart(ProductModel item) {
     cartItems.add(item);
-    update(); // Notify listeners about the change
+    update(); 
   }
 
-  void removeFromCart(CartEntity item) {
+  void removeFromCart(ProductModel item) {
     cartItems.remove(item);
-    update(); // Notify listeners about the change
+    update(); 
   }
 
   void clearCart() {
     cartItems.clear();
-    update(); // Notify listeners about the change
+    update(); 
   }
 
-  double get totalPrice {
-    double total = 0.0;
-    for (var item in cartItems) {
-      total += item.price * item.quantity;
-    }
-    return total;
-  }
+// fuction to calculate price of each cart when the user decrease or increase quantity
+
+
+
+
 }

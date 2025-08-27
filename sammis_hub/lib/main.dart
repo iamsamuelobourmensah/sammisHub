@@ -30,10 +30,10 @@ class _MyAppState extends State<MyApp> {
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       darkTheme: Apptheme.darkTheme,
-      theme: Apptheme.darkTheme,
+      theme: Apptheme.lightTheme,
 
-     // home: CustomNavbar(),
-     home: CartScreen(),
+      home: CustomNavbar(),
+   //  home: CartScreen(),
     );
   }
 }

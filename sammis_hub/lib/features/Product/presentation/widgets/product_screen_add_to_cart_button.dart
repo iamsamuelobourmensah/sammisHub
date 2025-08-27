@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sammis_hub/core/Constants/color_theme.dart';
 
 class ProductScreenAddToCartButton extends StatelessWidget {
-  const ProductScreenAddToCartButton({super.key});
-
+  const ProductScreenAddToCartButton({super.key, required this.onPressed});
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -13,7 +13,7 @@ class ProductScreenAddToCartButton extends StatelessWidget {
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(23.0)),
         ),
       ),
-      onPressed: () {},
+      onPressed: onPressed,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 12.0),
         child: Row(

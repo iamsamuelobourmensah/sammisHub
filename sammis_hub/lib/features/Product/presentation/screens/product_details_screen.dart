@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:sammis_hub/core/Constants/color_theme.dart';
+import 'package:sammis_hub/features/Cart/Domain/entities/cart_entity.dart';
+import 'package:sammis_hub/features/Cart/presentation/controllers/cart_controller.dart';
 import 'package:sammis_hub/features/HomeScreen/data/model/product_model.dart';
 import 'package:sammis_hub/features/Product/presentation/widgets/product_detail_screen_price_card.dart';
 import 'package:sammis_hub/features/Product/presentation/widgets/product_detailscreen_image_contianer.dart';
@@ -17,6 +21,7 @@ class ProductDetailsScreen extends StatefulWidget {
 class _ProductDetailsScreenState extends State<ProductDetailsScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  CartController _cartController = Get.find<CartController>();
   int quantity = 1;
 
   int get totalPrice => (widget.productModel?.price ?? 0) * quantity;
@@ -181,7 +186,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                 ProductDetailScreenPriceCard(
                   price:"GHC${totalPrice.toStringAsFixed(2)}",
                 ),
-                const ProductScreenAddToCartButton(),
+                ProductScreenAddToCartButton(onPressed: () {
+                  _cartController.addToCart(widget.productModel!);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Item added to cart successfully')),
+                  );
+                }),
               ],
             ),
           ],
